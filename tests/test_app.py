@@ -2,13 +2,13 @@ import unittest
 
 from fastapi.testclient import TestClient
 
-from fast_note.app import app, get_note_snapshot, notes
+from fast_note.main import main, get_note_snapshot, notes
 
 
 class NotesApiTests(unittest.TestCase):
     def setUp(self):
         notes.clear()
-        self.client = TestClient(app)
+        self.client = TestClient(main)
         self.addCleanup(self.client.close)
         self.addCleanup(notes.clear)
 
